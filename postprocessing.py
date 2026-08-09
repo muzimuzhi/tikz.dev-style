@@ -1,3 +1,10 @@
+# /// script
+# dependencies = [
+#   "bs4",
+#   "html5lib",
+# ]
+# ///
+
 from xml.dom import minidom
 from bs4 import BeautifulSoup, NavigableString
 from shutil import copyfile, copytree
