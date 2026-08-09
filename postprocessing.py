@@ -59,7 +59,7 @@ def rearrange_heading_anchors(soup):
                 break
 
 def make_page_toc(soup):
-    container = soup.find(class_="bodyandsidetoc")
+    container = soup.find(class_="pagegrid")
     toc_container = soup.new_tag('div')
     # toc_container['class'] = 'page-toc-container'
     toc_container['class'] = 'sidetoccontainer'
@@ -263,7 +263,7 @@ def add_header(soup):
     h1.append(link)
     link.append("Website Title")
     header.append(h1)
-    soup.find(class_="bodyandsidetoc").insert(0, header)
+    soup.find(class_="pagegrid").insert(0, header)
 
 def favicon(soup):
     link = soup.new_tag('link', rel="icon", type="image/png", sizes="16x16", href="/favicon-16x16.png")
@@ -296,7 +296,7 @@ def add_footer(soup):
     em.append("Last updated: " + today)
     footer_right.append(em)
     footer.append(footer_right)
-    soup.find(class_="bodyandsidetoc").append(footer)
+    soup.find(class_="pagegrid").append(footer)
 
 def _add_dimensions(tag, svgfilename):
     with open(svgfilename, "r") as svgfile:
@@ -419,7 +419,7 @@ for filename in sorted(os.listdir()):
                 favicon(soup)
                 semantic_tags(soup)
                 add_meta_tags(filename, soup)
-                soup.find(class_="bodyandsidetoc")['class'].append("grid-container")
+                soup.find(class_="pagegrid")['class'].append("grid-container")
                 if filename == "index-0.html":
                     soup.h4.decompose() # don't need header on start page
                     soup.body['class'] = "index-page"
