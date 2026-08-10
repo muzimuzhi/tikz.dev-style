@@ -24,10 +24,12 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: taiki-e/install-action@v2
+      - uses: jdx/mise-action@v4
         with:
-          tool: |
-            uv
+          mise_toml: |
+            [tools]
+            uv = "latest"
+            prettier = "latest"
 
       - name: Install dev tools
         run: |
