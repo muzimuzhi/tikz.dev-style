@@ -32,7 +32,7 @@ jobs:
       - name: Install dev tools
         run: |
           apt-get update
-          apt-get install pngquant poppler
+          apt-get install pngquant poppler-utils
 
       - name: Build static files
         run: |
