@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
   <head>
     <meta charset="utf-8" />
     <meta content="LaTeX Lwarp package" name="generator" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Example HTML Title</title>
-    <link href="style.css?v=20240304" rel="stylesheet" type="text/css" />
+    <link href="style.css?v=20260810" rel="stylesheet" type="text/css" />
 
     <script>
       // Lwarp MathJax emulation code
@@ -47,7 +47,7 @@
               parser.string = ParseUtil.addArgs(
                 parser,
                 text,
-                parser.string.slice(parser.i)
+                parser.string.slice(parser.i),
               );
               parser.i = 0;
               if (
@@ -56,7 +56,7 @@
                 throw new TexError(
                   "MaxMacroSub1",
                   "MathJax maximum macro substitution count exceeded; " +
-                    "is there a recursive macro call?"
+                    "is there a recursive macro call?",
                 );
               }
             };
@@ -93,7 +93,7 @@
                   const gotchar = parser.GetNext() === whichchar;
                   useArgument(
                     parser,
-                    gotchar ? resultnextchar : resultnotnextchar
+                    gotchar ? resultnextchar : resultnotnextchar,
                   );
                 },
 
@@ -128,7 +128,7 @@
                   MathJax.config.section = neweqsection; // a string with numeric meaning
                   parser.tags.counter = parser.tags.allCounter = neweqnumber;
                 },
-              }
+              },
             );
 
             // Create the Lwarp-macros package
@@ -169,11 +169,11 @@
             delimiter.add("\\rbag", new Symbol("\\rbag", "\u27C6"));
             delimiter.add(
               "\\llparenthesis",
-              new Symbol("\\llparenthesis", "\u2987")
+              new Symbol("\\llparenthesis", "\u2987"),
             );
             delimiter.add(
               "\\rrparenthesis",
-              new Symbol("\\rrparenthesis", "\u2988")
+              new Symbol("\\rrparenthesis", "\u2988"),
             );
             delimiter.add("\\llangle", new Symbol("\\llangle", "\u2989"));
             delimiter.add("\\rrangle", new Symbol("\\rrangle", "\u298A"));
@@ -187,19 +187,19 @@
             delimiter.add("\\rbrackubar", new Symbol("\\rbrackubar", "\u298C"));
             delimiter.add(
               "\\lbrackultick",
-              new Symbol("\\lbrackultick", "\u298D")
+              new Symbol("\\lbrackultick", "\u298D"),
             );
             delimiter.add(
               "\\rbracklrtick",
-              new Symbol("\\rbracklrtick", "\u298E")
+              new Symbol("\\rbracklrtick", "\u298E"),
             );
             delimiter.add(
               "\\lbracklltick",
-              new Symbol("\\lbracklltick", "\u298F")
+              new Symbol("\\lbracklltick", "\u298F"),
             );
             delimiter.add(
               "\\rbrackurtick",
-              new Symbol("\\rbrackurtick", "\u2990")
+              new Symbol("\\rbrackurtick", "\u2990"),
             );
             delimiter.add("\\langledot", new Symbol("\\langledot", "\u2991"));
             delimiter.add("\\rangledot", new Symbol("\\rangledot", "\u2992"));
@@ -215,11 +215,11 @@
             delimiter.add("\\Rvzigzag", new Symbol("\\Rvzigzag", "\u29DB"));
             delimiter.add(
               "\\lcurvyangle",
-              new Symbol("\\lcurvyangle", "\u29FC")
+              new Symbol("\\lcurvyangle", "\u29FC"),
             );
             delimiter.add(
               "\\rcurvyangle",
-              new Symbol("\\rcurvyangle", "\u29FD")
+              new Symbol("\\rcurvyangle", "\u29FD"),
             );
             delimiter.add("\\Vvert", new Symbol("\\Vvert", "\u2980"));
           }, // ready
@@ -265,8 +265,7 @@
   </head>
   <body class="index-page">
     <a id="main-autopage-4"></a>
-
-    <div class="bodyandsidetoc grid-container">
+    <div class="pagegrid grid-container">
       <header>
         <div id="hamburger-button">☰</div>
         <strong><a href="/">Website Title</a></strong>
@@ -277,6 +276,7 @@
           <div class="sidetoccontents"></div>
         </nav>
       </div>
+
       <div class="sidetoccontainer" id="chapter-toc-container">
         <nav class="sidetoc">
           <div class="sidetoctitle">
@@ -314,37 +314,38 @@
             \(\newcommand {\footnotemark }[1][\LWRfootnote ]{{}^{\mathrm
             {#1}}}\) \(\let \LWRorighspace \hspace \) \(\renewcommand {\hspace
             }{\ifstar \LWRorighspace \LWRorighspace }\) \(\newcommand
-            {\mathnormal }[1]{{#1}}\) \(\newcommand \ensuremath [1]{#1}\)
-            \(\newcommand {\LWRframebox }[2][]{\fbox {#2}} \newcommand
-            {\framebox }[1][]{\LWRframebox } \) \(\newcommand {\setlength
-            }[2]{}\) \(\newcommand {\addtolength }[2]{}\) \(\newcommand
-            {\setcounter }[2]{}\) \(\newcommand {\addtocounter }[2]{}\)
-            \(\newcommand {\arabic }[1]{}\) \(\newcommand {\number }[1]{}\)
-            \(\newcommand {\noalign }[1]{\text {#1}\notag \\}\) \(\newcommand
-            {\cline }[1]{}\) \(\newcommand {\directlua }[1]{\text
-            {(directlua)}}\) \(\newcommand {\luatexdirectlua }[1]{\text
-            {(directlua)}}\) \(\newcommand {\protect }{}\) \(\def
-            \LWRabsorbnumber #1 {}\) \(\def \LWRabsorbquotenumber "#1 {}\)
-            \(\newcommand {\LWRabsorboption }[1][]{}\) \(\newcommand
-            {\LWRabsorbtwooptions }[1][]{\LWRabsorboption }\) \(\def \mathchar
-            {\ifnextchar "\LWRabsorbquotenumber \LWRabsorbnumber }\) \(\def
-            \mathcode #1={\mathchar }\) \(\let \delcode \mathcode \) \(\let
-            \delimiter \mathchar \) \(\def \oe {\unicode {x0153}}\) \(\def \OE
-            {\unicode {x0152}}\) \(\def \ae {\unicode {x00E6}}\) \(\def \AE
-            {\unicode {x00C6}}\) \(\def \aa {\unicode {x00E5}}\) \(\def \AA
-            {\unicode {x00C5}}\) \(\def \o {\unicode {x00F8}}\) \(\def \O
-            {\unicode {x00D8}}\) \(\def \l {\unicode {x0142}}\) \(\def \L
-            {\unicode {x0141}}\) \(\def \ss {\unicode {x00DF}}\) \(\def \SS
-            {\unicode {x1E9E}}\) \(\def \dag {\unicode {x2020}}\) \(\def \ddag
-            {\unicode {x2021}}\) \(\def \P {\unicode {x00B6}}\) \(\def
-            \copyright {\unicode {x00A9}}\) \(\def \pounds {\unicode {x00A3}}\)
-            \(\let \LWRref \ref \) \(\renewcommand {\ref }{\ifstar \LWRref
-            \LWRref }\) \( \newcommand {\multicolumn }[3]{#3}\) \(\require
-            {textcomp}\) \(\newcommand {\intertext }[1]{\text {#1}\notag \\}\)
-            \(\let \Hat \hat \) \(\let \Check \check \) \(\let \Tilde \tilde \)
-            \(\let \Acute \acute \) \(\let \Grave \grave \) \(\let \Dot \dot \)
-            \(\let \Ddot \ddot \) \(\let \Breve \breve \) \(\let \Bar \bar \)
-            \(\let \Vec \vec \)
+            {\TextOrMath }[2]{#2}\) \(\newcommand {\mathnormal }[1]{{#1}}\)
+            \(\newcommand \ensuremath [1]{#1}\) \(\newcommand {\LWRframebox
+            }[2][]{\fbox {#2}} \newcommand {\framebox }[1][]{\LWRframebox } \)
+            \(\newcommand {\setlength }[2]{}\) \(\newcommand {\addtolength
+            }[2]{}\) \(\newcommand {\setcounter }[2]{}\) \(\newcommand
+            {\addtocounter }[2]{}\) \(\newcommand {\arabic }[1]{}\)
+            \(\newcommand {\number }[1]{}\) \(\newcommand {\noalign }[1]{\text
+            {#1}\notag \\}\) \(\newcommand {\cline }[1]{}\) \(\newcommand
+            {\directlua }[1]{\text {(directlua)}}\) \(\newcommand
+            {\luatexdirectlua }[1]{\text {(directlua)}}\) \(\newcommand
+            {\protect }{}\) \(\def \LWRabsorbnumber #1 {}\) \(\def
+            \LWRabsorbquotenumber "#1 {}\) \(\newcommand {\LWRabsorboption
+            }[1][]{}\) \(\newcommand {\LWRabsorbtwooptions
+            }[1][]{\LWRabsorboption }\) \(\def \mathchar {\ifnextchar
+            "\LWRabsorbquotenumber \LWRabsorbnumber }\) \(\def \mathcode
+            #1={\mathchar }\) \(\let \delcode \mathcode \) \(\let \delimiter
+            \mathchar \) \(\def \oe {\unicode {x0153}}\) \(\def \OE {\unicode
+            {x0152}}\) \(\def \ae {\unicode {x00E6}}\) \(\def \AE {\unicode
+            {x00C6}}\) \(\def \aa {\unicode {x00E5}}\) \(\def \AA {\unicode
+            {x00C5}}\) \(\def \o {\unicode {x00F8}}\) \(\def \O {\unicode
+            {x00D8}}\) \(\def \l {\unicode {x0142}}\) \(\def \L {\unicode
+            {x0141}}\) \(\def \ss {\unicode {x00DF}}\) \(\def \SS {\unicode
+            {x1E9E}}\) \(\def \dag {\unicode {x2020}}\) \(\def \ddag {\unicode
+            {x2021}}\) \(\def \P {\unicode {x00B6}}\) \(\def \copyright
+            {\unicode {x00A9}}\) \(\def \pounds {\unicode {x00A3}}\) \(\let
+            \LWRref \ref \) \(\renewcommand {\ref }{\ifstar \LWRref \LWRref }\)
+            \( \newcommand {\multicolumn }[3]{#3}\) \(\require {textcomp}\)
+            \(\newcommand {\intertext }[1]{\text {#1}\notag \\}\) \(\let \Hat
+            \hat \) \(\let \Check \check \) \(\let \Tilde \tilde \) \(\let
+            \Acute \acute \) \(\let \Grave \grave \) \(\let \Dot \dot \) \(\let
+            \Ddot \ddot \) \(\let \Breve \breve \) \(\let \Bar \bar \) \(\let
+            \Vec \vec \)
           </div>
 
           <p></p>
@@ -409,8 +410,9 @@
         <div class="footer-left">
           <a href="#">Link 1</a> &middot; <a href="#">Link 2</a>
         </div>
-        <div class="footer-right"><em>Last updated: 2024-03-04</em></div>
+        <div class="footer-right"><em>Last updated: 2026-08-10</em></div>
       </footer>
     </div>
+    <!-- grid -->
   </body>
 </html>
