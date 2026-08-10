@@ -30,8 +30,9 @@ jobs:
           cache: false
           mise_toml: |
             [tools]
-            uv = "latest"
+            node = "latest"
             prettier = "latest"
+            uv = "latest"
 
       - name: Install dev tools using apt
         run: |
