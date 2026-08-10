@@ -24,15 +24,20 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: taiki-e/install-action@v2
+      - name: Install dev tools using mise
+        uses: jdx/mise-action@v4
         with:
-          tool: |
-            uv
+          cache: false
+          mise_toml: |
+            [tools]
+            node = "latest"
+            prettier = "latest"
+            uv = "latest"
 
-      - name: Install dev tools
+      - name: Install dev tools using apt
         run: |
-          sudo apt update
-          sudo apt install pngquant poppler
+          apt-get update -y
+          apt-get install -y pngquant poppler-utils
 
       - name: Build static files
         run: |
