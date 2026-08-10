@@ -5,4 +5,4 @@ lwarpmk cleanall
 lwarpmk html
 ./build-limages-with-margin.lua limages # same as lwarpmk limages but it also makes pngs
 sleep 5
-python3 postprocessing.py
+uv run --script postprocessing.py
