@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 lualatex -interaction=nonstopmode -halt-on-error main.tex
 lwarpmk cleanall
