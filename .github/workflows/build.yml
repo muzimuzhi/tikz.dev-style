@@ -1,0 +1,70 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+# Allow only one concurrent deployment, skipping runs queued between the run
+# in-progress and latest queued. However, do NOT cancel in-progress runs as we
+# want to allow these production deployments to complete.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: registry.gitlab.com/islandoftex/images/texlive:latest
+
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Install dev tools using mise
+        uses: jdx/mise-action@v4
+        with:
+          cache: false
+          mise_toml: |
+            [tools]
+            node = "latest"
+            prettier = "latest"
+            uv = "latest"
+
+      - name: Install dev tools using apt
+        run: |
+          apt-get update -y
+          apt-get install -y pngquant poppler-utils
+
+      - name: Build static files
+        run: |
+          ./build.sh
+
+      - name: Upload static files as artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: processed/
+
+  # Using `actions/deploy-pages` action, the repository should use
+  # "GitHub Actions" as the source for GitHub Pages. This can be set in the
+  # repository settings:
+  #     Settings - Pages - Build and deployment - Choose "GitHub Actions" as Source
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    needs: build
+
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
